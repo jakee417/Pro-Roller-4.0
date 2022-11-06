@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>events</string>
+			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>proroller</string>
+				<string>application/proroller</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Pro Roller Event</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.company.Pro-Roller</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>dice_tight</string>
+			<key>CFBundleURLName</key>
+			<string>com.company.Pro-Roller</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>events</string>
+			</array>
+		</dict>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.utf8-plain-text</string>
+				<string>public.json</string>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Pro Roller Event</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>dice_tight.png</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.company.Pro-Roller</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>events</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/proroller</string>
+					<string>proroller</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B33C558E-29F3-4080-8AAA-F8AAF3B71476"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82BF61DC-0A5C-4188-80D9-01AAF4EE1120"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tests iOS/Tests_iOS.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.IDETestFailureBreakpoint">
+         <BreakpointContent
+            uuid = "3CE1D259-DD84-4EA6-8C8C-CCE410D27C87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4125B3BD-6894-45DB-ABFA-086EF3E2F92A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pro RollerTests/Pro_RollerTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "testScoreConsecutiveEvent()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1EB20C5-4EBC-4701-9EEE-0D12E438CEC5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../Developer/Xcode/DerivedData/Pro_Roller-gdvzyxjlfyhpdighoaneatkgegub/SourcePackages/checkouts/GameKitUI.swift/Sources/GameKitUI/iOS/Matchmaker/MatchmakerViewController+iOS.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E6806C0-A92A-404B-A7A4-269B6449C4DD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/GameCenter/GKManager+GKTurnBasedEventListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "player(_:receivedTurnEventFor:didBecomeActive:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E6806C0-A92A-404B-A7A4-269B6449C4DD - d6b4217a97afbd1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Pro_Roller.GKManager.player(_: __C.GKPlayer, receivedTurnEventFor: __C.GKTurnBasedMatch, didBecomeActive: Swift.Bool) -&gt; ()"
+                  moduleName = "Pro Roller"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakeetaylor/Library/Mobile%20Documents/iCloud~com~apple~Playgrounds/Documents/Pro%20Roller/Shared/GameCenter/GKManager+GKTurnBasedEventListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "2144">
+               </Location>
+               <Location
+                  uuid = "8E6806C0-A92A-404B-A7A4-269B6449C4DD - d6b4217a97afbd1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Pro_Roller.GKManager.player(_: __C.GKPlayer, receivedTurnEventFor: __C.GKTurnBasedMatch, didBecomeActive: Swift.Bool) -&gt; ()"
+                  moduleName = "Pro Roller"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jakeetaylor/Library/Mobile%20Documents/iCloud~com~apple~Playgrounds/Documents/Pro%20Roller/Shared/GameCenter/GKManager+GKTurnBasedEventListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

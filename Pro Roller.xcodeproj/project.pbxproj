@@ -1,0 +1,948 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B1AFA4528D2F57200F10C41 /* dice.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1AFA4428D2F57200F10C41 /* dice.png */; };
+		0B1AFA4C28D2F6CF00F10C41 /* dice_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1AFA4828D2F6CE00F10C41 /* dice_22.png */; };
+		0B1AFA4D28D2F6CF00F10C41 /* dice_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1AFA4928D2F6CF00F10C41 /* dice_64.png */; };
+		0B1AFA4E28D2F6CF00F10C41 /* dice_320.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1AFA4A28D2F6CF00F10C41 /* dice_320.png */; };
+		0B1AFA4F28D2F6CF00F10C41 /* dice_44.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1AFA4B28D2F6CF00F10C41 /* dice_44.png */; };
+		0B1AFA5128D3803800F10C41 /* dice_tight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1AFA5028D3803800F10C41 /* dice_tight.png */; };
+		0B1AFA5328D380D400F10C41 /* dice_tight_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1AFA5228D380D400F10C41 /* dice_tight_large.png */; };
+		0B7057DA28DC17B1003F8F5D /* GameKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7057D928DC17B1003F8F5D /* GameKitUI */; };
+		0B7057F328DD6DA2003F8F5D /* GKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7057F228DD6DA2003F8F5D /* GKManager.swift */; };
+		0B7057F928DED4CC003F8F5D /* SnapToScroll in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7057F828DED4CC003F8F5D /* SnapToScroll */; };
+		0B7057FB28DF7F45003F8F5D /* game-center-128x128_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7057FA28DF7F45003F8F5D /* game-center-128x128_2x.png */; };
+		0B70580128E28590003F8F5D /* SharedBoardDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70580028E28590003F8F5D /* SharedBoardDiceView.swift */; };
+		0B70580528E28B3F003F8F5D /* SharedBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70580428E28B3F003F8F5D /* SharedBoardView.swift */; };
+		0B70580728E3FF2A003F8F5D /* SharedBoardDieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B70580628E3FF29003F8F5D /* SharedBoardDieView.swift */; };
+		0B74189A2894EDF5008E03BF /* Pro_RollerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7418722894EDF4008E03BF /* Pro_RollerApp.swift */; };
+		0B74192D2894F285008E03BF /* SimulationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419192894F285008E03BF /* SimulationManager.swift */; };
+		0B74192F2894F285008E03BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B74191A2894F285008E03BF /* Assets.xcassets */; };
+		0B7419312894F285008E03BF /* HistogramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74191B2894F285008E03BF /* HistogramView.swift */; };
+		0B7419332894F286008E03BF /* SimulatorViewEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74191C2894F285008E03BF /* SimulatorViewEvents.swift */; };
+		0B7419352894F286008E03BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74191D2894F285008E03BF /* Constants.swift */; };
+		0B7419372894F286008E03BF /* BoardDiceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74191E2894F285008E03BF /* BoardDiceSettingsView.swift */; };
+		0B7419392894F286008E03BF /* BoardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74191F2894F285008E03BF /* BoardsView.swift */; };
+		0B74193B2894F286008E03BF /* BoardDiceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419202894F285008E03BF /* BoardDiceHeaderView.swift */; };
+		0B74193D2894F286008E03BF /* SimulatorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419212894F285008E03BF /* SimulatorEvent.swift */; };
+		0B74193F2894F286008E03BF /* BoardToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419222894F285008E03BF /* BoardToolbarView.swift */; };
+		0B7419412894F286008E03BF /* SimulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419232894F285008E03BF /* SimulatorView.swift */; };
+		0B7419452894F286008E03BF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419252894F285008E03BF /* MainView.swift */; };
+		0B7419472894F286008E03BF /* SimulatorViewEventButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419262894F285008E03BF /* SimulatorViewEventButtons.swift */; };
+		0B7419492894F286008E03BF /* BoardDieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419272894F285008E03BF /* BoardDieView.swift */; };
+		0B74194B2894F286008E03BF /* DiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419282894F285008E03BF /* DiceModel.swift */; };
+		0B74194D2894F286008E03BF /* DiceModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419292894F285008E03BF /* DiceModelManager.swift */; };
+		0B74194F2894F286008E03BF /* BoardDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74192A2894F285008E03BF /* BoardDiceView.swift */; };
+		0B7419512894F640008E03BF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419182894F285008E03BF /* Utilities.swift */; };
+		0B7419532894F768008E03BF /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419522894F768008E03BF /* UtilityViews.swift */; };
+		0B7419572894F804008E03BF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419562894F804008E03BF /* Color.swift */; };
+		0B7419D72895027F008E03BF /* Pro_RollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419D62895027F008E03BF /* Pro_RollerTests.swift */; };
+		0B7419E428950EAF008E03BF /* Pro_RollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419E328950EAF008E03BF /* Pro_RollerUITests.swift */; };
+		0B7419E628950EAF008E03BF /* Pro_RollerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7419E528950EAF008E03BF /* Pro_RollerUITestsLaunchTests.swift */; };
+		0B7AC2C428B1EBF8008F8A6D /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7AC2C328B1EBF8008F8A6D /* Algorithms */; };
+		0BA72A09289645CB000E04D1 /* SimulationViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA72A08289645CB000E04D1 /* SimulationViewHeader.swift */; };
+		0BBF8EA428E8BE44006CC6EB /* Description.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0BBF8EA328E8BE44006CC6EB /* Description.rtf */; };
+		0BDD41862900EF2800DD9285 /* GKUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD41852900EF2800DD9285 /* GKUtilities.swift */; };
+		0BDD418A29024A1700DD9285 /* GKTurnBasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD418929024A1700DD9285 /* GKTurnBasedView.swift */; };
+		0BDD418C29024AA300DD9285 /* TurnBasedBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD418B29024AA300DD9285 /* TurnBasedBoardView.swift */; };
+		0BDD418E2903B5F800DD9285 /* YahtzeeScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD418D2903B5F800DD9285 /* YahtzeeScoreBoardView.swift */; };
+		0BDD41902903BDE400DD9285 /* YahtzeeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD418F2903BDE400DD9285 /* YahtzeeGame.swift */; };
+		0BDD41932906295500DD9285 /* GKManager+GKTurnBasedEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD41922906295500DD9285 /* GKManager+GKTurnBasedEventListener.swift */; };
+		0BDD41952906299B00DD9285 /* GKManager+GKMatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD41942906299B00DD9285 /* GKManager+GKMatchDelegate.swift */; };
+		0BDD4197290629D400DD9285 /* GKManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD4196290629D400DD9285 /* GKManagerExtensions.swift */; };
+		0BDD419B2908DDBF00DD9285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BDD41992908DDBF00DD9285 /* Assets.xcassets */; };
+		0BDD419E2908DFD600DD9285 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDD419D2908DFD600DD9285 /* ConfettiSwiftUI */; };
+		0BE84FD0290CD195005B43C5 /* TurnBasedMatchMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE84FCF290CD195005B43C5 /* TurnBasedMatchMakerViewController.swift */; };
+		0BE84FD3290CD45E005B43C5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE84FD2290CD45E005B43C5 /* UIViewController.swift */; };
+		0BE84FD5290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE84FD4290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift */; };
+		0BE97A3528A0CCDC0095FC8F /* WhereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97A3428A0CCDC0095FC8F /* WhereView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B7419D82895027F008E03BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B74186D2894EDF4008E03BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B7418782894EDF5008E03BF;
+			remoteInfo = "Pro Roller (iOS)";
+		};
+		0B7419E728950EAF008E03BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B74186D2894EDF4008E03BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B7418782894EDF5008E03BF;
+			remoteInfo = "Pro Roller (iOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B1AFA3F28D2DE4700F10C41 /* Pro-Roller--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pro-Roller--iOS--Info.plist"; sourceTree = "<group>"; };
+		0B1AFA4428D2F57200F10C41 /* dice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice.png; sourceTree = "<group>"; };
+		0B1AFA4828D2F6CE00F10C41 /* dice_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice_22.png; sourceTree = "<group>"; };
+		0B1AFA4928D2F6CF00F10C41 /* dice_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice_64.png; sourceTree = "<group>"; };
+		0B1AFA4A28D2F6CF00F10C41 /* dice_320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice_320.png; sourceTree = "<group>"; };
+		0B1AFA4B28D2F6CF00F10C41 /* dice_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice_44.png; sourceTree = "<group>"; };
+		0B1AFA5028D3803800F10C41 /* dice_tight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice_tight.png; sourceTree = "<group>"; };
+		0B1AFA5228D380D400F10C41 /* dice_tight_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dice_tight_large.png; sourceTree = "<group>"; };
+		0B7057DB28DC1C6A003F8F5D /* Pro Roller (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pro Roller (iOS).entitlements"; sourceTree = "<group>"; };
+		0B7057F228DD6DA2003F8F5D /* GKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKManager.swift; sourceTree = "<group>"; };
+		0B7057FA28DF7F45003F8F5D /* game-center-128x128_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game-center-128x128_2x.png"; sourceTree = "<group>"; };
+		0B70580028E28590003F8F5D /* SharedBoardDiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedBoardDiceView.swift; sourceTree = "<group>"; };
+		0B70580428E28B3F003F8F5D /* SharedBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedBoardView.swift; sourceTree = "<group>"; };
+		0B70580628E3FF29003F8F5D /* SharedBoardDieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedBoardDieView.swift; sourceTree = "<group>"; };
+		0B7418722894EDF4008E03BF /* Pro_RollerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro_RollerApp.swift; sourceTree = "<group>"; };
+		0B7418792894EDF5008E03BF /* Pro Roller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pro Roller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B7419182894F285008E03BF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		0B7419192894F285008E03BF /* SimulationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulationManager.swift; sourceTree = "<group>"; };
+		0B74191A2894F285008E03BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B74191B2894F285008E03BF /* HistogramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistogramView.swift; sourceTree = "<group>"; };
+		0B74191C2894F285008E03BF /* SimulatorViewEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorViewEvents.swift; sourceTree = "<group>"; };
+		0B74191D2894F285008E03BF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0B74191E2894F285008E03BF /* BoardDiceSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardDiceSettingsView.swift; sourceTree = "<group>"; };
+		0B74191F2894F285008E03BF /* BoardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardsView.swift; sourceTree = "<group>"; };
+		0B7419202894F285008E03BF /* BoardDiceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardDiceHeaderView.swift; sourceTree = "<group>"; };
+		0B7419212894F285008E03BF /* SimulatorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorEvent.swift; sourceTree = "<group>"; };
+		0B7419222894F285008E03BF /* BoardToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardToolbarView.swift; sourceTree = "<group>"; };
+		0B7419232894F285008E03BF /* SimulatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorView.swift; sourceTree = "<group>"; };
+		0B7419252894F285008E03BF /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0B7419262894F285008E03BF /* SimulatorViewEventButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorViewEventButtons.swift; sourceTree = "<group>"; };
+		0B7419272894F285008E03BF /* BoardDieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardDieView.swift; sourceTree = "<group>"; };
+		0B7419282894F285008E03BF /* DiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceModel.swift; sourceTree = "<group>"; };
+		0B7419292894F285008E03BF /* DiceModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceModelManager.swift; sourceTree = "<group>"; };
+		0B74192A2894F285008E03BF /* BoardDiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardDiceView.swift; sourceTree = "<group>"; };
+		0B7419522894F768008E03BF /* UtilityViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
+		0B7419562894F804008E03BF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		0B7419D42895027F008E03BF /* Pro RollerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pro RollerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B7419D62895027F008E03BF /* Pro_RollerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro_RollerTests.swift; sourceTree = "<group>"; };
+		0B7419E128950EAF008E03BF /* Pro RollerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pro RollerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B7419E328950EAF008E03BF /* Pro_RollerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro_RollerUITests.swift; sourceTree = "<group>"; };
+		0B7419E528950EAF008E03BF /* Pro_RollerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro_RollerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BA72A08289645CB000E04D1 /* SimulationViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationViewHeader.swift; sourceTree = "<group>"; };
+		0BBF8EA328E8BE44006CC6EB /* Description.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Description.rtf; sourceTree = "<group>"; };
+		0BDD41852900EF2800DD9285 /* GKUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKUtilities.swift; sourceTree = "<group>"; };
+		0BDD418929024A1700DD9285 /* GKTurnBasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKTurnBasedView.swift; sourceTree = "<group>"; };
+		0BDD418B29024AA300DD9285 /* TurnBasedBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnBasedBoardView.swift; sourceTree = "<group>"; };
+		0BDD418D2903B5F800DD9285 /* YahtzeeScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahtzeeScoreBoardView.swift; sourceTree = "<group>"; };
+		0BDD418F2903BDE400DD9285 /* YahtzeeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahtzeeGame.swift; sourceTree = "<group>"; };
+		0BDD41922906295500DD9285 /* GKManager+GKTurnBasedEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKManager+GKTurnBasedEventListener.swift"; sourceTree = "<group>"; };
+		0BDD41942906299B00DD9285 /* GKManager+GKMatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKManager+GKMatchDelegate.swift"; sourceTree = "<group>"; };
+		0BDD4196290629D400DD9285 /* GKManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKManagerExtensions.swift; sourceTree = "<group>"; };
+		0BDD41992908DDBF00DD9285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BE84FCF290CD195005B43C5 /* TurnBasedMatchMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnBasedMatchMakerViewController.swift; sourceTree = "<group>"; };
+		0BE84FD2290CD45E005B43C5 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		0BE84FD4290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKTurnBasedMatchmakingMatchmakerView.swift; sourceTree = "<group>"; };
+		0BE97A3428A0CCDC0095FC8F /* WhereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B7418762894EDF5008E03BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7057F928DED4CC003F8F5D /* SnapToScroll in Frameworks */,
+				0B7AC2C428B1EBF8008F8A6D /* Algorithms in Frameworks */,
+				0BDD419E2908DFD600DD9285 /* ConfettiSwiftUI in Frameworks */,
+				0B7057DA28DC17B1003F8F5D /* GameKitUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B7419D12895027F008E03BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B7419DE28950EAF008E03BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B7057E028DC21AE003F8F5D /* Boards */ = {
+			isa = PBXGroup;
+			children = (
+				0B7419202894F285008E03BF /* BoardDiceHeaderView.swift */,
+				0B74191F2894F285008E03BF /* BoardsView.swift */,
+				0B7419222894F285008E03BF /* BoardToolbarView.swift */,
+				0B74191E2894F285008E03BF /* BoardDiceSettingsView.swift */,
+				0B74192A2894F285008E03BF /* BoardDiceView.swift */,
+				0B7419272894F285008E03BF /* BoardDieView.swift */,
+			);
+			path = Boards;
+			sourceTree = "<group>";
+		};
+		0B7057E128DC21CF003F8F5D /* DiceModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B7419282894F285008E03BF /* DiceModel.swift */,
+				0B7419292894F285008E03BF /* DiceModelManager.swift */,
+			);
+			path = DiceModel;
+			sourceTree = "<group>";
+		};
+		0B7057E228DC21DF003F8F5D /* Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				0BA72A08289645CB000E04D1 /* SimulationViewHeader.swift */,
+				0B7419232894F285008E03BF /* SimulatorView.swift */,
+				0BE97A3428A0CCDC0095FC8F /* WhereView.swift */,
+				0B74191C2894F285008E03BF /* SimulatorViewEvents.swift */,
+				0B7419262894F285008E03BF /* SimulatorViewEventButtons.swift */,
+				0B7419212894F285008E03BF /* SimulatorEvent.swift */,
+				0B7419192894F285008E03BF /* SimulationManager.swift */,
+			);
+			path = Simulator;
+			sourceTree = "<group>";
+		};
+		0B7057E328DC222E003F8F5D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0B7057FA28DF7F45003F8F5D /* game-center-128x128_2x.png */,
+				0B1AFA5228D380D400F10C41 /* dice_tight_large.png */,
+				0B1AFA5028D3803800F10C41 /* dice_tight.png */,
+				0B1AFA4828D2F6CE00F10C41 /* dice_22.png */,
+				0B1AFA4B28D2F6CF00F10C41 /* dice_44.png */,
+				0B1AFA4928D2F6CF00F10C41 /* dice_64.png */,
+				0B1AFA4A28D2F6CF00F10C41 /* dice_320.png */,
+				0B1AFA4428D2F57200F10C41 /* dice.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0B7057E428DC225E003F8F5D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0B74191D2894F285008E03BF /* Constants.swift */,
+				0B7419182894F285008E03BF /* Utilities.swift */,
+				0B7419522894F768008E03BF /* UtilityViews.swift */,
+				0B74191B2894F285008E03BF /* HistogramView.swift */,
+				0B7419562894F804008E03BF /* Color.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0B7057E528DC22A3003F8F5D /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				0BE84FD1290CD427005B43C5 /* TurnBasedMatchmakingMatchmaker */,
+				0B7057F228DD6DA2003F8F5D /* GKManager.swift */,
+				0BDD4196290629D400DD9285 /* GKManagerExtensions.swift */,
+				0BDD41942906299B00DD9285 /* GKManager+GKMatchDelegate.swift */,
+				0BDD41922906295500DD9285 /* GKManager+GKTurnBasedEventListener.swift */,
+				0BDD418F2903BDE400DD9285 /* YahtzeeGame.swift */,
+				0BDD41852900EF2800DD9285 /* GKUtilities.swift */,
+			);
+			path = GameCenter;
+			sourceTree = "<group>";
+		};
+		0B74186C2894EDF4008E03BF = {
+			isa = PBXGroup;
+			children = (
+				0B7057DB28DC1C6A003F8F5D /* Pro Roller (iOS).entitlements */,
+				0B1AFA3F28D2DE4700F10C41 /* Pro-Roller--iOS--Info.plist */,
+				0B7418712894EDF4008E03BF /* Shared */,
+				0B7419D52895027F008E03BF /* Pro RollerTests */,
+				0B7419E228950EAF008E03BF /* Pro RollerUITests */,
+				0B74187A2894EDF5008E03BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B7418712894EDF4008E03BF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0B74191A2894F285008E03BF /* Assets.xcassets */,
+				0B7418722894EDF4008E03BF /* Pro_RollerApp.swift */,
+				0B7419252894F285008E03BF /* MainView.swift */,
+				0B7057E028DC21AE003F8F5D /* Boards */,
+				0BDD4191290628EE00DD9285 /* SharedBoards */,
+				0B7057E528DC22A3003F8F5D /* GameCenter */,
+				0B7057E228DC21DF003F8F5D /* Simulator */,
+				0B7057E128DC21CF003F8F5D /* DiceModel */,
+				0B7057E428DC225E003F8F5D /* Utilities */,
+				0BBF8EA528E8BE58006CC6EB /* AppStore */,
+				0B7057E328DC222E003F8F5D /* Images */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0B74187A2894EDF5008E03BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B7418792894EDF5008E03BF /* Pro Roller.app */,
+				0B7419D42895027F008E03BF /* Pro RollerTests.xctest */,
+				0B7419E128950EAF008E03BF /* Pro RollerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B7419D52895027F008E03BF /* Pro RollerTests */ = {
+			isa = PBXGroup;
+			children = (
+				0B7419D62895027F008E03BF /* Pro_RollerTests.swift */,
+			);
+			path = "Pro RollerTests";
+			sourceTree = "<group>";
+		};
+		0B7419E228950EAF008E03BF /* Pro RollerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0B7419E328950EAF008E03BF /* Pro_RollerUITests.swift */,
+				0B7419E528950EAF008E03BF /* Pro_RollerUITestsLaunchTests.swift */,
+			);
+			path = "Pro RollerUITests";
+			sourceTree = "<group>";
+		};
+		0BBF8EA528E8BE58006CC6EB /* AppStore */ = {
+			isa = PBXGroup;
+			children = (
+				0BBF8EA328E8BE44006CC6EB /* Description.rtf */,
+			);
+			path = AppStore;
+			sourceTree = "<group>";
+		};
+		0BDD4191290628EE00DD9285 /* SharedBoards */ = {
+			isa = PBXGroup;
+			children = (
+				0B70580428E28B3F003F8F5D /* SharedBoardView.swift */,
+				0B70580028E28590003F8F5D /* SharedBoardDiceView.swift */,
+				0B70580628E3FF29003F8F5D /* SharedBoardDieView.swift */,
+				0BDD418929024A1700DD9285 /* GKTurnBasedView.swift */,
+				0BDD418B29024AA300DD9285 /* TurnBasedBoardView.swift */,
+				0BDD418D2903B5F800DD9285 /* YahtzeeScoreBoardView.swift */,
+				0BDD41992908DDBF00DD9285 /* Assets.xcassets */,
+			);
+			path = SharedBoards;
+			sourceTree = "<group>";
+		};
+		0BE84FD1290CD427005B43C5 /* TurnBasedMatchmakingMatchmaker */ = {
+			isa = PBXGroup;
+			children = (
+				0BE84FD4290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift */,
+				0BE84FCF290CD195005B43C5 /* TurnBasedMatchMakerViewController.swift */,
+				0BE84FD2290CD45E005B43C5 /* UIViewController.swift */,
+			);
+			path = TurnBasedMatchmakingMatchmaker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B7418782894EDF5008E03BF /* Pro Roller (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B7418A22894EDF5008E03BF /* Build configuration list for PBXNativeTarget "Pro Roller (iOS)" */;
+			buildPhases = (
+				0B7418752894EDF5008E03BF /* Sources */,
+				0B7418762894EDF5008E03BF /* Frameworks */,
+				0B7418772894EDF5008E03BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B7AC2C628B1ECB3008F8A6D /* PBXTargetDependency */,
+			);
+			name = "Pro Roller (iOS)";
+			packageProductDependencies = (
+				0B7AC2C328B1EBF8008F8A6D /* Algorithms */,
+				0B7057D928DC17B1003F8F5D /* GameKitUI */,
+				0B7057F828DED4CC003F8F5D /* SnapToScroll */,
+				0BDD419D2908DFD600DD9285 /* ConfettiSwiftUI */,
+			);
+			productName = "Pro Roller (iOS)";
+			productReference = 0B7418792894EDF5008E03BF /* Pro Roller.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0B7419D32895027F008E03BF /* Pro RollerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B7419DA2895027F008E03BF /* Build configuration list for PBXNativeTarget "Pro RollerTests" */;
+			buildPhases = (
+				0B7419D02895027F008E03BF /* Sources */,
+				0B7419D12895027F008E03BF /* Frameworks */,
+				0B7419D22895027F008E03BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B7419D92895027F008E03BF /* PBXTargetDependency */,
+			);
+			name = "Pro RollerTests";
+			productName = "Pro RollerTests";
+			productReference = 0B7419D42895027F008E03BF /* Pro RollerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0B7419E028950EAF008E03BF /* Pro RollerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B7419E928950EAF008E03BF /* Build configuration list for PBXNativeTarget "Pro RollerUITests" */;
+			buildPhases = (
+				0B7419DD28950EAF008E03BF /* Sources */,
+				0B7419DE28950EAF008E03BF /* Frameworks */,
+				0B7419DF28950EAF008E03BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B7419E828950EAF008E03BF /* PBXTargetDependency */,
+			);
+			name = "Pro RollerUITests";
+			productName = "Pro RollerUITests";
+			productReference = 0B7419E128950EAF008E03BF /* Pro RollerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B74186D2894EDF4008E03BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					0B7418782894EDF5008E03BF = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					0B7419D32895027F008E03BF = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 0B7418782894EDF5008E03BF;
+					};
+					0B7419E028950EAF008E03BF = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 0B7418782894EDF5008E03BF;
+					};
+				};
+			};
+			buildConfigurationList = 0B7418702894EDF4008E03BF /* Build configuration list for PBXProject "Pro Roller" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B74186C2894EDF4008E03BF;
+			packageReferences = (
+				0B7AC2C228B1EBF8008F8A6D /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				0B7057D828DC17B0003F8F5D /* XCRemoteSwiftPackageReference "GameKitUI.swift" */,
+				0B7057F728DED4CC003F8F5D /* XCRemoteSwiftPackageReference "hstack-snap-to-scroll" */,
+				0BDD419C2908DFD600DD9285 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
+			productRefGroup = 0B74187A2894EDF5008E03BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B7418782894EDF5008E03BF /* Pro Roller (iOS) */,
+				0B7419D32895027F008E03BF /* Pro RollerTests */,
+				0B7419E028950EAF008E03BF /* Pro RollerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B7418772894EDF5008E03BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B1AFA4D28D2F6CF00F10C41 /* dice_64.png in Resources */,
+				0B1AFA4528D2F57200F10C41 /* dice.png in Resources */,
+				0B1AFA4F28D2F6CF00F10C41 /* dice_44.png in Resources */,
+				0B1AFA4E28D2F6CF00F10C41 /* dice_320.png in Resources */,
+				0B74192F2894F285008E03BF /* Assets.xcassets in Resources */,
+				0B1AFA5328D380D400F10C41 /* dice_tight_large.png in Resources */,
+				0B1AFA5128D3803800F10C41 /* dice_tight.png in Resources */,
+				0B1AFA4C28D2F6CF00F10C41 /* dice_22.png in Resources */,
+				0B7057FB28DF7F45003F8F5D /* game-center-128x128_2x.png in Resources */,
+				0BDD419B2908DDBF00DD9285 /* Assets.xcassets in Resources */,
+				0BBF8EA428E8BE44006CC6EB /* Description.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B7419D22895027F008E03BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B7419DF28950EAF008E03BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B7418752894EDF5008E03BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B70580528E28B3F003F8F5D /* SharedBoardView.swift in Sources */,
+				0B7057F328DD6DA2003F8F5D /* GKManager.swift in Sources */,
+				0B7419512894F640008E03BF /* Utilities.swift in Sources */,
+				0B74192D2894F285008E03BF /* SimulationManager.swift in Sources */,
+				0B7419572894F804008E03BF /* Color.swift in Sources */,
+				0B7419452894F286008E03BF /* MainView.swift in Sources */,
+				0BA72A09289645CB000E04D1 /* SimulationViewHeader.swift in Sources */,
+				0B7419332894F286008E03BF /* SimulatorViewEvents.swift in Sources */,
+				0B7419392894F286008E03BF /* BoardsView.swift in Sources */,
+				0BDD418E2903B5F800DD9285 /* YahtzeeScoreBoardView.swift in Sources */,
+				0B7419532894F768008E03BF /* UtilityViews.swift in Sources */,
+				0B74194F2894F286008E03BF /* BoardDiceView.swift in Sources */,
+				0BDD418C29024AA300DD9285 /* TurnBasedBoardView.swift in Sources */,
+				0B74193F2894F286008E03BF /* BoardToolbarView.swift in Sources */,
+				0B74194B2894F286008E03BF /* DiceModel.swift in Sources */,
+				0B74194D2894F286008E03BF /* DiceModelManager.swift in Sources */,
+				0BDD41862900EF2800DD9285 /* GKUtilities.swift in Sources */,
+				0B74189A2894EDF5008E03BF /* Pro_RollerApp.swift in Sources */,
+				0BE97A3528A0CCDC0095FC8F /* WhereView.swift in Sources */,
+				0BDD4197290629D400DD9285 /* GKManagerExtensions.swift in Sources */,
+				0BDD418A29024A1700DD9285 /* GKTurnBasedView.swift in Sources */,
+				0BE84FD5290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift in Sources */,
+				0B7419492894F286008E03BF /* BoardDieView.swift in Sources */,
+				0B74193D2894F286008E03BF /* SimulatorEvent.swift in Sources */,
+				0B7419472894F286008E03BF /* SimulatorViewEventButtons.swift in Sources */,
+				0B7419312894F285008E03BF /* HistogramView.swift in Sources */,
+				0BDD41952906299B00DD9285 /* GKManager+GKMatchDelegate.swift in Sources */,
+				0B70580728E3FF2A003F8F5D /* SharedBoardDieView.swift in Sources */,
+				0B74193B2894F286008E03BF /* BoardDiceHeaderView.swift in Sources */,
+				0B7419412894F286008E03BF /* SimulatorView.swift in Sources */,
+				0BE84FD3290CD45E005B43C5 /* UIViewController.swift in Sources */,
+				0BDD41902903BDE400DD9285 /* YahtzeeGame.swift in Sources */,
+				0B7419372894F286008E03BF /* BoardDiceSettingsView.swift in Sources */,
+				0BDD41932906295500DD9285 /* GKManager+GKTurnBasedEventListener.swift in Sources */,
+				0B7419352894F286008E03BF /* Constants.swift in Sources */,
+				0BE84FD0290CD195005B43C5 /* TurnBasedMatchMakerViewController.swift in Sources */,
+				0B70580128E28590003F8F5D /* SharedBoardDiceView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B7419D02895027F008E03BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7419D72895027F008E03BF /* Pro_RollerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B7419DD28950EAF008E03BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7419E628950EAF008E03BF /* Pro_RollerUITestsLaunchTests.swift in Sources */,
+				0B7419E428950EAF008E03BF /* Pro_RollerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B7419D92895027F008E03BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B7418782894EDF5008E03BF /* Pro Roller (iOS) */;
+			targetProxy = 0B7419D82895027F008E03BF /* PBXContainerItemProxy */;
+		};
+		0B7419E828950EAF008E03BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B7418782894EDF5008E03BF /* Pro Roller (iOS) */;
+			targetProxy = 0B7419E728950EAF008E03BF /* PBXContainerItemProxy */;
+		};
+		0B7AC2C628B1ECB3008F8A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B7AC2C528B1ECB3008F8A6D /* Algorithms */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B7418A02894EDF5008E03BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0B7418A12894EDF5008E03BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		0B7418A32894EDF5008E03BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFull;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Pro Roller (iOS).entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 13;
+				DEVELOPMENT_TEAM = X94AU9YYL5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pro-Roller--iOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Pro Roller";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.dice-games";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-Roller";
+				PRODUCT_NAME = "Pro Roller";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0B7418A42894EDF5008E03BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFull;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Pro Roller (iOS).entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 13;
+				DEVELOPMENT_TEAM = X94AU9YYL5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pro-Roller--iOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Pro Roller";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.dice-games";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-Roller";
+				PRODUCT_NAME = "Pro Roller";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B7419DB2895027F008E03BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X94AU9YYL5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-RollerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pro Roller.app/Pro Roller";
+			};
+			name = Debug;
+		};
+		0B7419DC2895027F008E03BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X94AU9YYL5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-RollerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pro Roller.app/Pro Roller";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B7419EA28950EAF008E03BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X94AU9YYL5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-RollerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pro Roller (iOS)";
+			};
+			name = Debug;
+		};
+		0B7419EB28950EAF008E03BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X94AU9YYL5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-RollerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pro Roller (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B7418702894EDF4008E03BF /* Build configuration list for PBXProject "Pro Roller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B7418A02894EDF5008E03BF /* Debug */,
+				0B7418A12894EDF5008E03BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B7418A22894EDF5008E03BF /* Build configuration list for PBXNativeTarget "Pro Roller (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B7418A32894EDF5008E03BF /* Debug */,
+				0B7418A42894EDF5008E03BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B7419DA2895027F008E03BF /* Build configuration list for PBXNativeTarget "Pro RollerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B7419DB2895027F008E03BF /* Debug */,
+				0B7419DC2895027F008E03BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B7419E928950EAF008E03BF /* Build configuration list for PBXNativeTarget "Pro RollerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B7419EA28950EAF008E03BF /* Debug */,
+				0B7419EB28950EAF008E03BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B7057D828DC17B0003F8F5D /* XCRemoteSwiftPackageReference "GameKitUI.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftPackageRepository/GameKitUI.swift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		0B7057F728DED4CC003F8F5D /* XCRemoteSwiftPackageReference "hstack-snap-to-scroll" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftui-library/hstack-snap-to-scroll";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		0B7AC2C228B1EBF8008F8A6D /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		0BDD419C2908DFD600DD9285 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B7057D928DC17B1003F8F5D /* GameKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B7057D828DC17B0003F8F5D /* XCRemoteSwiftPackageReference "GameKitUI.swift" */;
+			productName = GameKitUI;
+		};
+		0B7057F828DED4CC003F8F5D /* SnapToScroll */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B7057F728DED4CC003F8F5D /* XCRemoteSwiftPackageReference "hstack-snap-to-scroll" */;
+			productName = SnapToScroll;
+		};
+		0B7AC2C328B1EBF8008F8A6D /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B7AC2C228B1EBF8008F8A6D /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		0B7AC2C528B1ECB3008F8A6D /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B7AC2C228B1EBF8008F8A6D /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		0BDD419D2908DFD600DD9285 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BDD419C2908DFD600DD9285 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0B74186D2894EDF4008E03BF /* Project object */;
+}
