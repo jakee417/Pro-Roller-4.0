@@ -535,7 +535,7 @@ class SimulationManager: ObservableObject {
         lockSelection: [Int: Int],
         batch: [Int]
     ) throws -> Bool {
-        var passedEvents = events
+        let passedEvents = events
         // Parse events
         var validEvents: [ValidEvent] = []
         do {
@@ -584,7 +584,7 @@ class SimulationManager: ObservableObject {
         if batch.isEmpty {
             throw SimulationError.nilDiceAmount
         }
-        var passedEvents = events
+        let passedEvents = events
         // Parse events
         var validEvents: [ValidEvent] = []
         do {

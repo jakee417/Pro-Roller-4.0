@@ -705,7 +705,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4;
+				MARKETING_VERSION = 3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-Roller";
 				PRODUCT_NAME = "Pro Roller";
 				SDKROOT = iphoneos;
@@ -746,7 +746,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4;
+				MARKETING_VERSION = 3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "pinkynbrain.Pro-Roller";
 				PRODUCT_NAME = "Pro Roller";
 				SDKROOT = iphoneos;
