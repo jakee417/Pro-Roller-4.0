@@ -355,7 +355,11 @@ class EventManagers: ObservableObject {
                 let fileURL = try fileURL(url)
                 guard let file = try? FileHandle(forReadingFrom: fileURL) else {
                     DispatchQueue.main.async {
-                        completion(.success([]))
+                        if let eventManagers = SimulationPresets.presets[.example] {
+                            completion(.success(eventManagers.map({ $0.settings })))
+                        } else {
+                            completion(.success([]))
+                        }
                     }
                     return
                 }

@@ -15,98 +15,82 @@ struct BoardDiceSettingsView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section(
-                    header: Text("Roll Mode "), footer: Text(Image(systemName: rollTypeImage(diceManager.selectionMode)))
-                ) {
+            Form {
+                Section {
                     Picker("Roll Mode", selection: self.$diceManager.selectionMode) {
                         ForEach(RollType.allCases, id: \.self) {
                             Text("\($0.rawValue)")
                         }
                     }
                     .pickerStyle(.segmented)
-                }
-                Section(header: Text("Number of Dice "), footer: Text("\(diceAmountInt)")) {
+                } header: {
+                    Text("Roll Mode")
+                } footer: {
                     HStack {
+                        Image(systemName: rollTypeImage(diceManager.selectionMode))
+                        switch diceManager.selectionMode {
+                        case .shuffle:
+                            Text("Shuffle all dice")
+                        case .sort:
+                            Text("Shuffle all dice, then sort in increasing order")
+                        case .single:
+                            Text("Shuffle one dice at a time")
+                        case .freezable:
+                            Text("Freeze the value of selected dice")
+                        case .edit:
+                            Text("Change the value of selected dice")
+                        }
+                    }
+                    
+                }
+                Section {
+                    VStack {
                         Slider(
                             value: $diceAmount,
                             in: 0...Float(diceManager.maxDice),
                             step: 1
                         )
-                    }
-                    HStack {
-                        Spacer()
-                        Stepper {
-                            EmptyView()
-                        } onIncrement: {
-                            for _ in 1...diceManager.incrementAmount.rawValue {
-                                diceAmount += 1
-                            }
-                        } onDecrement: {
-                            for _ in 1...diceManager.incrementAmount.rawValue {
-                                diceAmount = max(0, diceAmount - 1)
-                            }
-                        }
-                        .frame(maxWidth: 0)
-                        Spacer()
-                    }
-                }
-                Section("Visuals") {
-                    Toggle(isOn: $diceManager.showProfile) {
-                        Image(systemName: "person.crop.circle.fill")
-                            .foregroundColor(.secondary)
-                        Text("Name")
-                    }
-                    if diceManager.showProfile {
                         HStack {
-                            TextField("Name", text: $diceManager.name)
-                                .foregroundColor(.accentColor)
+                            Spacer()
+                            Stepper {
+                                EmptyView()
+                            } onIncrement: {
+                                for _ in 1...diceManager.incrementAmount.rawValue {
+                                    diceAmount += 1
+                                }
+                            } onDecrement: {
+                                for _ in 1...diceManager.incrementAmount.rawValue {
+                                    diceAmount = max(0, diceAmount - 1)
+                                }
+                            }
+                            .frame(maxWidth: 0)
                             Spacer()
                         }
                     }
-                    Toggle(isOn: $diceManager.animate) {
-                        Image(systemName: "arrow.uturn.backward.circle.fill")
-                            .foregroundColor(.secondary)
-                        Text("Animations")
-                    }
-                    Toggle(isOn: $diceManager.showHistogram) {
-                        Image(systemName: "chart.bar.fill")
-                            .foregroundColor(.secondary)
-                        Text("Scores")
+                } header: {
+                    Text("Number of Dice")
+                } footer: {
+                    Text("\(diceAmountInt) dice")
+                }
+                Section {
+                    HStack {
+                        if diceManager.showProfile {
+                            TextField("Name", text: $diceManager.name)
+                                .foregroundColor(.accentColor)
+                        } else {
+                            Image(systemName: "person")
+                            Text("Name")
+                        }
+                        Spacer()
+                        Toggle("", isOn: $diceManager.showProfile)
                     }
                     HStack {
-                        if #available(iOS 16.0, *) {
-                            VStack {
-                                HStack {
-                                    ZStack {
-                                        Image(systemName: "circle.fill")
-                                            .imageScale(.large)
-                                            .foregroundColor(.secondary)
-                                        Image(systemName: "circle.fill")
-                                            .foregroundColor(diceManager.color)
-                                    }
-                                    Spacer()
-                                }
-                                
-                                HStack {
-                                    Text("Color")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                    Spacer()
-                                }
-                            }
-                        } else {
-                            HStack {
-                                ZStack {
-                                    Image(systemName: "circle.fill")
-                                        .imageScale(.large)
-                                        .foregroundColor(.secondary)
-                                    Image(systemName: "circle.fill")
-                                        .foregroundColor(diceManager.color)
-                                }
-                                Text("Color")
-                            }
-                        }
+                        Text("Animations")
+                        Spacer()
+                        Toggle("", isOn: $diceManager.animate)
+                    }
+                    HStack {
+                        color
                         Spacer()
                         Menu(
                             content: {
@@ -121,17 +105,22 @@ struct BoardDiceSettingsView: View {
                             }
                         )
                     }
+                } header: {
+                    Text("Visuals")
                 }
-                Section("Increase/Decrease Amount") {
+                Section {
                     Picker("", selection: $diceManager.incrementAmount) {
                         ForEach(DiceAmountPresets.allCases, id: \.self) {
                             Text("\($0.rawValue)")
                         }
                     }
                     .pickerStyle(.segmented)
+                } header: {
+                    Text("Increase/Decrease Amount")
+                } footer: {
+                    Text("How many dice to add or remove at a time")
                 }
             }
-            .listStyle(.insetGrouped)
             .navigationTitle("Board Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -140,6 +129,35 @@ struct BoardDiceSettingsView: View {
                 }
             }
         }
-        .navigationViewStyle(.stack)
+    }
+}
+
+private extension BoardDiceSettingsView {
+    var color: some View {
+        HStack {
+            Image(systemName: "circle.fill")
+                .foregroundColor(diceManager.color)
+                .background {
+                    Image(systemName: "circle.fill")
+                        .imageScale(.large)
+                        .foregroundColor(.primary)
+                        .scaleEffect(1.02)
+                }
+            Text("Color")
+        }
+    }
+}
+
+struct BoardDiceSettingsViewPreview: View {
+    @State var showSettings: Bool = true
+    @State var diceAmount: Float = 5.0
+    var body: some View {
+        BoardDiceSettingsView(diceManager: DiceManager(), showSettings: $showSettings, diceAmount: $diceAmount)
+    }
+}
+
+struct BoardDiceSettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        BoardDiceSettingsViewPreview()
     }
 }

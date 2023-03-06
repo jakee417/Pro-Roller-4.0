@@ -123,13 +123,13 @@ class DiceManager: ObservableObject, Identifiable, Equatable {
     @Published public var count: Int = 0
     @Published private var _sides: DiceTypes
     @Published private var _selectionMode: RollType = .shuffle
-    @Published var showHistogram: Bool = false
+    @Published var showHistogram: Bool = true
     @Published var animate: Bool = true
     @Published var incrementAmount: DiceAmountPresets = .small
     @Published private var _color: Color = .white
     @Published public var lockSelection: [Int: Int] = [:]
     @Published public var showSimulator: Bool = false
-    @Published public var showProfile: Bool = false
+    @Published public var showProfile: Bool = true
     @Published public var editSelection: Set<Int> = Set<Int>()
     
     init(
@@ -476,7 +476,10 @@ class DiceManagers: ObservableObject {
                 let fileURL = try fileURL()
                 guard let file = try? FileHandle(forReadingFrom: fileURL) else {
                     DispatchQueue.main.async {
-                        completion(.success([]))
+                        // Queue a new diceManager if there is no saved info.
+                        let diceManager = DiceManager()
+                        diceManager.totalDice = 5
+                        completion(.success([diceManager.settings]))
                     }
                     return
                 }

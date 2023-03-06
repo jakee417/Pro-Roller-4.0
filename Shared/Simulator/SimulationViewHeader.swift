@@ -63,7 +63,7 @@ struct SimulatorHeaderView: View {
                 Spacer()
             }
             HStack {
-                Text("Setup the Simulation")
+                Text("Select the type of dice and how many times to simulate the events")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .listRowSeparator(.hidden)
@@ -108,7 +108,7 @@ struct SimulationContentView: View {
                 }
                 .padding(.top, 10)
                 HStack {
-                    Text("generated")
+                    Text("simulated")
                         .font(.headline)
                     SimulationAmountButton(simManager: simManager)
                 }

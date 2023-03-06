@@ -71,13 +71,6 @@ struct SimulatorView: View {
                     closedSave: saveEvents
                 )
                 .listRowSeparator(.hidden)
-                PresetsView(
-                    eventManagers: container.eventManagers,
-                    simManager: simManager,
-                    selectedDice: $selectedDice
-
-                )
-                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .padding(.bottom, 20)
@@ -116,7 +109,7 @@ struct SimulatorView: View {
                         }
                         Button("Cancel", role: .cancel) { }
                     } message: {
-                        Text("Reset All Events to Default?")
+                        Text("Reset All Events to default? This action cannot be undone.")
                     }
                     Button {
                         clearButton.toggle()
@@ -132,7 +125,7 @@ struct SimulatorView: View {
                         }
                         Button("Cancel", role: .cancel) { }
                     } message: {
-                        Text("Delete All Events?")
+                        Text("Delete All Events? This action cannot be undone.")
                     }
                     Spacer()
                     Button {
@@ -250,6 +243,7 @@ struct SimulatorView: View {
                 for setting in settings {
                     let eventManager = EventManager(name: setting.name)
                     eventManager.settings = setting
+                    eventManager.updateSelectedDiceType(newDiceType: selectedDice)
                     eventManagers.managers.append(eventManager)
                 }
             }
@@ -295,7 +289,7 @@ struct EventsView: View {
                 }
             }
             HStack{
-                Text("Compute and View")
+                Text("Simulate an event's statistics from randomly generated dice")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 Spacer()
@@ -344,8 +338,18 @@ struct EventsView: View {
         if managers.showManager {
             ZStack {
                 SimulatorCard(minHeight: 40)
+                NavigationLink {
+                    SimulatorPresetsView(eventManagers: managers, simManager: simManager, selectedDice: $selectedDice)
+                } label: {
+                    Text("Recommended Events")
+                        .font(.headline)
+                }
+                .padding(8)
+            }
+            ZStack {
+                SimulatorCard(minHeight: 40)
                 HStack {
-                    Text("New Event")
+                    Text("Custom Event")
                         .font(.headline)
                         .padding(.leading, 5)
                     Spacer()
@@ -625,7 +629,7 @@ struct EventViewContextMenu: View {
             Button {
                 self.isSharePresented = true
             } label: {
-                Label("Share" , systemImage: "square.and.arrow.up")
+                Label("Share", systemImage: "square.and.arrow.up")
             }
         }
     }
@@ -769,243 +773,21 @@ struct SimulatorCard: View {
     }
 }
 
-struct PresetsView: View {
-    @StateObject var eventManagers: EventManagers
-    @StateObject var simManager: SimulationManager
-    @Binding var selectedDice: DiceTypes?
-    @State var selectedEventManager: EventManager? = nil
-    @State var addAll: Bool = false
-    @State var game: Game = .example
-    @State var showPresets: [EventManager] = SimulationPresets.presets[.example]!
-    @State var showRecommendations = true
-    
+
+
+struct SimulatorViewPreview: View {
+    @State var totalDice = 6
+    @State var selectedDice: DiceTypes? = .D6
+    @State var lockSelection: [Int: Int] = [:]
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            HStack {
-                Button {
-                    withAnimation(.spring()) {
-                        showRecommendations.toggle()
-                    }
-                } label: {
-                    Label("Events", systemImage: "chevron.right.circle.fill")
-                        .labelStyle(.iconOnly)
-                        .imageScale(.large)
-                        .rotationEffect(.degrees(showRecommendations ? 90 : 0))
-                        .scaleEffect(showRecommendations ? 1.1 : 1)
-                    Text("Presets")
-                        .font(.title.bold())
-                        .foregroundColor(.primary)
-                }
-                .buttonStyle(.borderless)
-                Spacer()
-                if showRecommendations {
-                    Button {
-                        addAll.toggle()
-                    } label: {
-                        Text("Add All")
-                    }
-                    .buttonStyle(.borderless)
-                    .transition(.opacity)
-                    .confirmationDialog("", isPresented: $addAll) {
-                        Button("Add \((SimulationPresets.presets[game] ?? []).count) Events") {
-                            withAnimation {
-                                for preset in SimulationPresets.presets[game] ?? [] {
-                                    preset.updateSelectedDiceType(newDiceType: selectedDice)
-                                    let presetCopy: EventManager = preset.copy() as! EventManager
-                                    eventManagers.managers.append(presetCopy)
-                                }
-                            }
-                        }
-                        Button("Cancel", role: .cancel) { }
-                    } message: {
-                        Text("Add All Events?")
-                    }
-                }
-            }
-            HStack {
-                Text("Presets for")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                Menu {
-                    Picker("Game", selection: $game) {
-                        ForEach(Game.allCases, id: \.self) {
-                            Text("\($0.rawValue)")
-                        }
-                    }
-                    .onChange(of: game) { tag in
-                        showPresets = SimulationPresets.presets[tag] ?? []
-                    }
-                } label: {
-                    Text("\(game.rawValue)")
-                        .modifier(ButtonInset(opacity: false, color: showRecommendations ? .accentColor : .gray))
-                }
-                .disabled(!showRecommendations)
-                Spacer()
-            }
-            .padding(.top, 5)
-        }
-        if showRecommendations {
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .center, spacing: 30) {
-                    ForEach($showPresets) { $preset in
-                        GeometryReader { geometry in
-                            PresetCard(
-                                preset: $preset,
-                                selectedDice: $selectedDice,
-                                simManager: simManager,
-                                add: add
-                            )
-                            .rotation3DEffect(
-                                Angle(
-                                    degrees: computeAngle(geometry.frame(in: .global).minX)
-                                ),
-                                axis: (x: 0, y: 1.0, z: 0)
-                            )
-                            .scaleEffect(1.1 * cos(computeAngle(geometry.frame(in: .global).minX)))
-                        }
-                        .frame(width: 200, height: 80)
-                    }
-                }
-                .padding(.all, 10)
-            }
-            .frame(width: UIScreen.main.bounds.width * 0.95, height: 120)
-        }
-    }
-    
-    func computeAngle(_ minX: CGFloat) -> Double {
-        return (Double(minX) - UIScreen.main.bounds.width / 2.0 + 100.0) / -UIScreen.main.bounds.width
-    }
-    
-    func add(newManager: EventManager) {
-        newManager.updateSelectedDiceType(newDiceType: selectedDice)
-        let newManagerCopy: EventManager = newManager.copy() as! EventManager
-        eventManagers.managers.append(newManagerCopy)
+        SimulatorView(totalDice: $totalDice, selectedDice: $selectedDice, lockSelection: $lockSelection)
+            .environmentObject(SimulationManager())
+            .environmentObject(EventManagersContainer())
     }
 }
 
-
-struct PresetCard: View {
-    @Binding var preset: EventManager
-    @Binding var selectedDice: DiceTypes?
-    @StateObject var simManager: SimulationManager
-    
-    @State var showPreview = false
-    @State var previewEventManager: EventManager = EventManager(name: "")
-    @State var dummyTotalDice = 6
-    @State var dummyLockSelectionDice: [Int: Int] = [:]
-    
-    let add: (EventManager) -> Void
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            HStack {
-                Button {
-                    previewEventManager = preset
-                    showPreview = true
-                } label: {
-                    Text(preset.name)
-                        .font(.headline)
-                        .modifier(ButtonInset(opacity: false))
-                        .scaledToFit()
-                }
-                .buttonStyle(.borderless)
-                .sheet(isPresented: $showPreview) {
-                    PreviewWhereView(
-                        eventManager: $previewEventManager,
-                        selectionDice: $selectedDice,
-                        simManager: simManager,
-                        addFunc: add
-                    )
-                }
-                .padding(.leading, 5)
-                Spacer()
-            }
-            ZStack {
-                SimulatorCard(minHeight: 40, minWidth: 200)
-                    .shadow(color: .primary, radius: 3, x: 5, y: 5)
-                HStack {
-                    VStack {
-                        Text("\(preset.events.count)")
-                            .font(.headline.bold())
-                        Text("Events")
-                            .font(.subheadline)
-                    }
-                    .padding(.leading, 10)
-                    Spacer()
-                    Button {
-                        add(preset)
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .symbolRenderingMode(.multicolor)
-                            .imageScale(.large)
-                    }
-                    .buttonStyle(.borderless)
-                    .padding(.trailing, 10)
-                }
-            }
-        }
-    }
-}
-
-struct PreviewWhereView: View {
-    @Environment(\.dismiss) var dismiss
-    @Binding var eventManager: EventManager
-    @Binding var selectionDice: DiceTypes?
-    @ObservedObject var simManager: SimulationManager
-    
-    @State var dummyTotalDice = 6
-    @State var dummyLockSelectionDice: [Int: Int] = [:]
-    
-    let addFunc: (EventManager) -> Void
-
-    var body: some View {
-        NavigationView {
-            List {
-                VStack {
-                    HStack {
-                        Text(eventManager.name)
-                            .font(.title3.bold())
-                        Spacer()
-                    }
-                    HStack {
-                        Text("Preview A Preset")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                    }
-                }
-                SimulatorViewEvents(
-                    events: $eventManager.events,
-                    totalDice: $dummyTotalDice,
-                    selectedDice: $selectionDice,
-                    lockSelection: $dummyLockSelectionDice,
-                    sheetVariable: .standard,
-                    buttonMode: false,
-                    simManager: simManager
-                )
-                .disabled(true)
-                .moveDisabled(true)
-                .deleteDisabled(true)
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    BackButtonView(dismiss: dismiss)
-                }
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Button {
-                        addFunc(eventManager)
-                        dismiss()
-                    } label: {
-                        Text("Add")
-                        Label("Add", systemImage: "flowchart")
-                    }
-                    .buttonStyle(.borderless)
-                }
-            }
-            .navigationTitle("Event Preview")
-            .navigationBarTitleDisplayMode(.inline)
-            .listStyle(.plain)
-        }
-        .navigationViewStyle(.stack)
+struct SimulatorView_Previews: PreviewProvider {
+    static var previews: some View {
+        SimulatorViewPreview()
     }
 }

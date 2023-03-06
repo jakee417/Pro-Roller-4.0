@@ -927,6 +927,21 @@ enum Game: String, CaseIterable {
     case backgammon = "Backgammon"
     case farkle = "Farkle"
     case monopoly = "Monopoly"
+    
+    var description: String {
+        switch self {
+        case .example:
+            return "Basic examples to get you started"
+        case .yahtzee:
+            return "Try to see if you can roll a Yahtzee"
+        case .backgammon:
+            return "Sixes or Doubles"
+        case .farkle:
+            return "Get as many points without rolling a Farkle"
+        case .monopoly:
+            return "Double or Sum of Two Dice"
+        }
+    }
 }
 
 struct SimulationPresets {

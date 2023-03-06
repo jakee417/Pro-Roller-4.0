@@ -417,7 +417,7 @@ struct EventSheetView: View {
     @Binding var simulation1D: Simulation1D
     @Binding var simulation2D: Simulation2D
     @Binding var simulationError: Bool
-    @State var showCard: Bool = false
+    @State var showCard: Bool = true
     
     var body: some View {
         NavigationView {

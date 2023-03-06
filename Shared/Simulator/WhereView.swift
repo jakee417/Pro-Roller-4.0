@@ -87,7 +87,7 @@ struct WhereView: View {
                         Spacer()
                     }
                     HStack {
-                        Text("View, Edit, and Share")
+                        Text("Customize events to simulate different quantities of interest")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                         Spacer()
@@ -358,7 +358,7 @@ struct SimulationHistogramView: View {
                 }
             }
             HStack {
-                Text("Plot the First Success")
+                Text("Plot the statistics of when you will see the first success")
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 Spacer()
@@ -515,5 +515,68 @@ struct NewEvent: View {
             .padding(.leading, 10)
             .padding(.trailing, 10)
         }
+    }
+}
+
+struct PreviewWhereView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var eventManager: EventManager
+    @Binding var selectionDice: DiceTypes?
+    @ObservedObject var simManager: SimulationManager
+    
+    @State var dummyTotalDice = 6
+    @State var dummyLockSelectionDice: [Int: Int] = [:]
+    
+    let addFunc: (EventManager) -> Void
+
+    var body: some View {
+        NavigationView {
+            List {
+                VStack {
+                    HStack {
+                        Text(eventManager.name)
+                            .font(.title3.bold())
+                        Spacer()
+                    }
+                    HStack {
+                        Text("Preview A Preset")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                }
+                SimulatorViewEvents(
+                    events: $eventManager.events,
+                    totalDice: $dummyTotalDice,
+                    selectedDice: $selectionDice,
+                    lockSelection: $dummyLockSelectionDice,
+                    sheetVariable: .standard,
+                    buttonMode: false,
+                    simManager: simManager
+                )
+                .disabled(true)
+                .moveDisabled(true)
+                .deleteDisabled(true)
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    BackButtonView(dismiss: dismiss)
+                }
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button {
+                        addFunc(eventManager)
+                        dismiss()
+                    } label: {
+                        Text("Add")
+                        Label("Add", systemImage: "flowchart")
+                    }
+                    .buttonStyle(.borderless)
+                }
+            }
+            .navigationTitle("Event Preview")
+            .navigationBarTitleDisplayMode(.inline)
+            .listStyle(.plain)
+        }
+        .navigationViewStyle(.stack)
     }
 }

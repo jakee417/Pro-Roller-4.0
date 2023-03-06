@@ -2,6 +2,13 @@ import SwiftUI
 import GameKit
 import GameKitUI
 
+struct BoardsView_Previews: PreviewProvider {
+    static var previews: some View {
+        BoardsView(diceManagers: DiceManagers(), saveSettings: {})
+            .environmentObject(GKManager())
+    }
+}
+
 struct BoardsView: View {
     @Environment(\.editMode) private var editMode
     @EnvironmentObject var gkManager: GKManager
@@ -345,35 +352,6 @@ struct GameCenterView: View {
             VStack {
                 GKGameCenterView()
                     .ignoresSafeArea()
-//                Group {
-//                    HStack {
-//                        Button {
-//                            withAnimation(.spring()) {
-//                                showOptions.toggle()
-//                            }
-//                        } label: {
-//                            Label("Boards", systemImage: "chevron.right.circle.fill")
-//                                .labelStyle(.iconOnly)
-//                                .imageScale(.large)
-//                                .rotationEffect(.degrees(showOptions ? 90 : 0))
-//                                .scaleEffect(showOptions ? 1.1 : 1)
-//                            Text("Friends Boards")
-//                                .font(.title3.bold())
-//                                .foregroundColor(.primary)
-//                        }
-//                        .buttonStyle(.borderless)
-//                        Spacer()
-//                    }
-//                    if showOptions {
-//                        MultiplayerButton(closedSave: closedSave)
-//                            .buttonStyle(.borderedProminent)
-//                        LastMatchButton(closedSave: closedSave)
-//                            .buttonStyle(.bordered)
-//                        LeaveMatchButton()
-//                            .buttonStyle(.bordered)
-//                    }
-//                }
-//                .padding(.all, 5)
             }
         }
     }

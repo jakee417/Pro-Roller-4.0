@@ -62,6 +62,8 @@
 		0BE84FD3290CD45E005B43C5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE84FD2290CD45E005B43C5 /* UIViewController.swift */; };
 		0BE84FD5290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE84FD4290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift */; };
 		0BE97A3528A0CCDC0095FC8F /* WhereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE97A3428A0CCDC0095FC8F /* WhereView.swift */; };
+		60B3126B29B58DB200229FBE /* ProRollerAppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3126A29B58DB200229FBE /* ProRollerAppIcon.swift */; };
+		60BA28D229B59F76004632DC /* SimulatorPresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BA28D129B59F76004632DC /* SimulatorPresetsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,8 @@
 		0BE84FD2290CD45E005B43C5 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		0BE84FD4290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKTurnBasedMatchmakingMatchmakerView.swift; sourceTree = "<group>"; };
 		0BE97A3428A0CCDC0095FC8F /* WhereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereView.swift; sourceTree = "<group>"; };
+		60B3126A29B58DB200229FBE /* ProRollerAppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProRollerAppIcon.swift; sourceTree = "<group>"; };
+		60BA28D129B59F76004632DC /* SimulatorPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorPresetsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +200,7 @@
 			children = (
 				0BA72A08289645CB000E04D1 /* SimulationViewHeader.swift */,
 				0B7419232894F285008E03BF /* SimulatorView.swift */,
+				60BA28D129B59F76004632DC /* SimulatorPresetsView.swift */,
 				0BE97A3428A0CCDC0095FC8F /* WhereView.swift */,
 				0B74191C2894F285008E03BF /* SimulatorViewEvents.swift */,
 				0B7419262894F285008E03BF /* SimulatorViewEventButtons.swift */,
@@ -264,6 +269,7 @@
 				0B74191A2894F285008E03BF /* Assets.xcassets */,
 				0B7418722894EDF4008E03BF /* Pro_RollerApp.swift */,
 				0B7419252894F285008E03BF /* MainView.swift */,
+				60B3126A29B58DB200229FBE /* ProRollerAppIcon.swift */,
 				0B7057E028DC21AE003F8F5D /* Boards */,
 				0BDD4191290628EE00DD9285 /* SharedBoards */,
 				0B7057E528DC22A3003F8F5D /* GameCenter */,
@@ -507,12 +513,14 @@
 				0B74189A2894EDF5008E03BF /* Pro_RollerApp.swift in Sources */,
 				0BE97A3528A0CCDC0095FC8F /* WhereView.swift in Sources */,
 				0BDD4197290629D400DD9285 /* GKManagerExtensions.swift in Sources */,
+				60B3126B29B58DB200229FBE /* ProRollerAppIcon.swift in Sources */,
 				0BDD418A29024A1700DD9285 /* GKTurnBasedView.swift in Sources */,
 				0BE84FD5290CD4A0005B43C5 /* GKTurnBasedMatchmakingMatchmakerView.swift in Sources */,
 				0B7419492894F286008E03BF /* BoardDieView.swift in Sources */,
 				0B74193D2894F286008E03BF /* SimulatorEvent.swift in Sources */,
 				0B7419472894F286008E03BF /* SimulatorViewEventButtons.swift in Sources */,
 				0B7419312894F285008E03BF /* HistogramView.swift in Sources */,
+				60BA28D229B59F76004632DC /* SimulatorPresetsView.swift in Sources */,
 				0BDD41952906299B00DD9285 /* GKManager+GKMatchDelegate.swift in Sources */,
 				0B70580728E3FF2A003F8F5D /* SharedBoardDieView.swift in Sources */,
 				0B74193B2894F286008E03BF /* BoardDiceHeaderView.swift in Sources */,

@@ -56,7 +56,7 @@ struct BoardToolbarView: View {
                 closedSave()
             }
         } label: {
-            Text("Roll")
+            Text("Roll All")
                 .font(.subheadline)
         }
         .buttonStyle(.borderedProminent)
