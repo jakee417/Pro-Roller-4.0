@@ -341,7 +341,7 @@ struct EventsView: View {
                 NavigationLink {
                     SimulatorPresetsView(eventManagers: managers, simManager: simManager, selectedDice: $selectedDice)
                 } label: {
-                    Text("Recommended Events")
+                    Text("Preset Events")
                         .font(.headline)
                 }
                 .padding(8)
@@ -360,7 +360,6 @@ struct EventsView: View {
                             .symbolRenderingMode(.multicolor)
                             .imageScale(.large)
                     }
-                    .buttonStyle(.borderless)
                 }
                 .padding(.leading, 5)
                 .padding(.trailing, 5)

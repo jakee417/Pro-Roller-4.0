@@ -935,11 +935,11 @@ enum Game: String, CaseIterable {
         case .yahtzee:
             return "Try to see if you can roll a Yahtzee"
         case .backgammon:
-            return "Sixes or Doubles"
+            return "Sixes or Doubles to move pips"
         case .farkle:
             return "Get as many points without rolling a Farkle"
         case .monopoly:
-            return "Double or Sum of Two Dice"
+            return "Double or Sum of Two Dice to get Boardwalk"
         }
     }
 }
