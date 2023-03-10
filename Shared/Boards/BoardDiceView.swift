@@ -2,7 +2,7 @@ import SwiftUI
 
 struct BoardDiceView: View {
     @StateObject var diceManager: DiceManager
-    @State var showSettings: Bool = false
+    @State var showSettings: Bool? = false
     @State var diceAmountOrdered: Float = 0
     @State var visibleIndices: Set<Int> = Set<Int>()
     @State var animationIndices: Set<Int> = Set<Int>()
@@ -20,17 +20,11 @@ struct BoardDiceView: View {
                 visibleIndices: $visibleIndices,
                 animationIndices: $animationIndices,
                 closedSave: closedSave,
-                roll : roll
+                roll : roll,
+                diceAmount: $diceAmountOrdered
             )
-            .sheet(isPresented: $showSettings) {
-                BoardDiceSettingsView(
-                    diceManager: diceManager, 
-                    showSettings: $showSettings,
-                    diceAmount: $diceAmountOrdered
-                )
-            }
             .onChange(of: showSettings) { value in
-                if value {
+                if let value = value, value {
                     diceAmountOrdered = Float(diceManager.totalDice)
                 } else {
                     if Float(diceManager.totalDice) != diceAmountOrdered {
@@ -88,24 +82,14 @@ struct BoardDiceView: View {
             )
             .transition(.moveAndFade)
         }
-        .sheet(isPresented: $diceManager.showSimulator) {
-            if #available(iOS 16.0, *) {
-                SimulatorView(
-                    totalDice: $diceManager.totalDice,
-                    selectedDice: $diceManager.sidesOptional,
-                    lockSelection: $diceManager.lockSelection,
-                    shownAsSheet: true
-                )
-                .presentationDetents([.fraction(0.99)])
-            } else {
-                SimulatorView(
-                    totalDice: $diceManager.totalDice,
-                    selectedDice: $diceManager.sidesOptional,
-                    lockSelection: $diceManager.lockSelection,
-                    shownAsSheet: true
-                )
-            }
-        }
+//        .fullScreenCover(isPresented: $diceManager.showSimulator) {
+//            SimulatorView(
+//                totalDice: $diceManager.totalDice,
+//                selectedDice: $diceManager.sidesOptional,
+//                lockSelection: $diceManager.lockSelection,
+//                shownAsSheet: true
+//            )
+//        }
     }
 }
 

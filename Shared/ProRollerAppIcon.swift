@@ -9,37 +9,18 @@ import SwiftUI
 
 struct ProRollerAppIcon: View {
     static let appIconSize: CGFloat = 512
-    @State var dice1: Dice = Dice(sides: .D6, diceColor: .red)
-    @State var dice2: Dice = Dice(sides: .D6, diceColor: .green)
-    @State var dice3: Dice = Dice(sides: .D6, diceColor: .orange)
+    @State var dice3: Dice = Dice(sides: .D6, diceColor: .white)
     
     var body: some View {
         if #available(iOS 16.0, *) {
             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                .fill(Color.accentColor.gradient)
+                .fill(RadialGradient(gradient: Gradient(colors: [.red, .orange, .yellow]), center: .center, startRadius: 0, endRadius: 600))
                 .overlay(
-                    VStack {
-                        dice1.renderView()
-                            .scaleEffect(2.0)
-                            .onAppear {
-                                dice1.value = 1
-                            }
-                            .offset(y: -64)
-                        HStack {
-                            dice2.renderView()
-                                .scaleEffect(2.0)
-                                .onAppear {
-                                    dice2.value = 2
-                                }
-                                .offset(x: -35)
-                            dice3.renderView()
-                                .scaleEffect(2.0)
-                                .onAppear {
-                                    dice3.value = 3
-                                }
-                                .offset(x: 35)
+                    dice3.renderView()
+                        .scaleEffect(4.0)
+                        .onAppear {
+                            dice3.value = 5
                         }
-                    }
                 )
         } else {
             EmptyView()

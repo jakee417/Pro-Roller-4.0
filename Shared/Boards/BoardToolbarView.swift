@@ -50,6 +50,10 @@ struct BoardToolbarView: View {
         .buttonStyle(.borderless)
         .padding(.leading, 15)
         Spacer()
+        if self.gkManager.allowMultiplayer {
+            MultiplayerButton(closedSave: closedSave)
+                .padding(.trailing, 15)
+        }
         Button {
             for diceManager in diceManagers.managers {
                 roll(diceManager)

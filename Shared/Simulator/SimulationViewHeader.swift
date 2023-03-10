@@ -63,7 +63,7 @@ struct SimulatorHeaderView: View {
                 Spacer()
             }
             HStack {
-                Text("Select the type of dice and how many times to simulate the events")
+                Text("Select the type of dice and how many times to simulate rolling the dice")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .listRowSeparator(.hidden)

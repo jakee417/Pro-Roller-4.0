@@ -2,71 +2,82 @@ import SwiftUI
 
 struct BoardDiceHeaderView: View {
     @StateObject var diceManager: DiceManager
-    @Binding var showSettings: Bool
+    @Binding var showSettings: Bool?
     @Binding var incrementAmount: DiceAmountPresets
     @Binding var visibleIndices: Set<Int>
     @Binding var animationIndices: Set<Int>
-    
     let closedSave: () -> Void
     let roll: (DiceManager) -> Void
+    @Binding var diceAmount: Float
     
     var body: some View {
-        HStack {
-            RollButton(
-                diceManager: diceManager,
-                visibleIndices: $visibleIndices,
-                animationIndices: $animationIndices,
-                closedSave: closedSave,
-                roll: roll
-            )
-            Menu {
-                Picker("Dice Type", selection: $diceManager.sides) {
-                    ForEach(DiceTypes.allCases, id: \.self) {
-                        Text("D\($0.rawValue)")
-                            .onTapGesture {
-                                closedSave()
-                            }
+        ZStack {
+            NavigationLink(destination:  SimulatorView(totalDice: $diceManager.totalDice, selectedDice: $diceManager.sidesOptional, lockSelection: $diceManager.lockSelection, shownAsSheet: true), tag: true, selection: $diceManager.showSimulator) {
+                EmptyView()
+            }
+            .opacity(0.0)
+            .disabled(true)
+            NavigationLink(destination: BoardDiceSettingsView(diceManager: diceManager, diceAmount: $diceAmount), tag: true, selection: $showSettings) {
+                EmptyView()
+            }
+            .opacity(0.0)
+            .disabled(true)
+            HStack {
+                RollButton(
+                    diceManager: diceManager,
+                    visibleIndices: $visibleIndices,
+                    animationIndices: $animationIndices,
+                    closedSave: closedSave,
+                    roll: roll
+                )
+                Menu {
+                    Picker("Dice Type", selection: $diceManager.sides) {
+                        ForEach(DiceTypes.allCases, id: \.self) {
+                            Text("D\($0.rawValue)")
+                                .onTapGesture {
+                                    closedSave()
+                                }
+                        }
                     }
+                    .onChange(of: diceManager.sides) { _ in
+                        closedSave()
+                    }
+                } label: {
+                    Text("D\(diceManager.sides.rawValue)")
+                        .padding(.all, 5)
+                        .modifier(ButtonInset(opacity: false))
                 }
-                .onChange(of: diceManager.sides) { _ in
+                Spacer()
+                Stepper {
+                    EmptyView()
+                } onIncrement: {
+                    for _ in 1...incrementAmount.rawValue {
+                        diceManager.append()
+                    }
+                    closedSave()
+                } onDecrement: {
+                    for _ in 1...incrementAmount.rawValue {
+                        diceManager.popLast()
+                    }
                     closedSave()
                 }
-            } label: {
-                Text("D\(diceManager.sides.rawValue)")
-                    .padding(.all, 5)
-                    .modifier(ButtonInset(opacity: false))
-            }
-            Spacer()
-            Stepper {
-                EmptyView()
-            } onIncrement: {
-                for _ in 1...incrementAmount.rawValue {
-                    diceManager.append()
+                .frame(maxWidth: 0)
+                Spacer()
+                Button {
+                    diceManager.showSimulator = true
+                } label: {
+                    Image(systemName: "flowchart.fill")
                 }
-                closedSave()
-            } onDecrement: {
-                for _ in 1...incrementAmount.rawValue {
-                    diceManager.popLast()
+                .buttonStyle(.borderless)
+                .disabled(diceManager.dice.isEmpty)
+                Button {
+                    showSettings = true
+                } label: {
+                    Image(systemName: "ellipsis.circle.fill")
+                        .imageScale(.large)
                 }
-                closedSave()
+                .buttonStyle(.borderless)
             }
-            .frame(maxWidth: 0)
-            Spacer()
-            Button {
-                diceManager.showSimulator = true
-            } label: {
-                Image(systemName: "flowchart.fill")
-            }
-            .buttonStyle(.borderless)
-            .disabled(diceManager.dice.isEmpty)
-            Button {
-                showSettings.toggle()
-            } label: {
-                Image(systemName: "ellipsis.circle.fill")
-                    .imageScale(.large)
-            }
-            .buttonStyle(.borderless)
-            .padding(.leading, 0)
         }
     }
 }

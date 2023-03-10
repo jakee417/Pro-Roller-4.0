@@ -69,3 +69,31 @@ extension Array {
         })
     }
 }
+
+enum HandScriptType: String {
+    case regular = "Caveat-Regular"
+    case medium = "Caveat-Medium"
+    case semiBold = "Caveat-SemiBold"
+    case bold = "Caveat-Bold"
+}
+
+struct HandScriptFont: ViewModifier {
+    var type: HandScriptType
+    var size: CGFloat
+    
+    init(_ type: HandScriptType, size: CGFloat = 16) {
+        self.type = type
+        self.size = size
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.custom(type.rawValue, size: size))
+    }
+}
+
+extension View {
+    func handScriptFont(_ type: HandScriptType, size: CGFloat) -> some View {
+        modifier(HandScriptFont(type, size: size))
+    }
+}

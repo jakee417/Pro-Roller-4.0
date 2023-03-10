@@ -41,6 +41,13 @@
 			</array>
 		</dict>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Caveat-Bold.ttf</string>
+		<string>Caveat-Medium.ttf</string>
+		<string>Caveat-Regular.ttf</string>
+		<string>Caveat-SemiBold.ttf</string>
+	</array>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>

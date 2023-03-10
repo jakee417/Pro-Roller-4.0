@@ -131,6 +131,11 @@ struct WhereView: View {
                     if #unavailable(iOS 16.0) {
                         EditButton()
                     }
+                    NavigationLink {
+                        WhereInfoView()
+                    } label: {
+                        Image(systemName: "info.circle")
+                    }
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
                     Group {
@@ -528,7 +533,7 @@ struct PreviewWhereView: View {
     @State var dummyLockSelectionDice: [Int: Int] = [:]
     
     let addFunc: (EventManager) -> Void
-
+    
     var body: some View {
         NavigationView {
             List {
@@ -578,5 +583,20 @@ struct PreviewWhereView: View {
             .listStyle(.plain)
         }
         .navigationViewStyle(.stack)
+    }
+}
+
+struct WhereViewPreview: View {
+    @State var totalDice: Int = 6
+    @State var selectedDice: DiceTypes? = .D6
+    @State var lockSelection: [Int: Int] = [:]
+    var body: some View {
+        WhereView(simManager: SimulationManager(), eventManager: EventManager(name: "Preview"), totalDice: $totalDice, selectedDice: $selectedDice, lockSelection: $lockSelection, closedSave: {})
+    }
+}
+
+struct WhereView_Previews: PreviewProvider {
+    static var previews: some View {
+        WhereViewPreview()
     }
 }

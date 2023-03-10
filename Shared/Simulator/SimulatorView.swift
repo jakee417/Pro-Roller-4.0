@@ -51,103 +51,102 @@ struct SimulatorView: View {
     }
     
     var body: some View {
-        NavigationView {
-            List {
-                SimulatorHeaderView(
-                    totalDice: $totalDice,
-                    selectedDice: $selectedDice,
-                    K: $K,
-                    lockSelection: $lockSelection,
-                    simManager: simManager,
-                    editableHeader: $editableHeader
-                )
-                .listRowSeparator(.hidden)
-                EventsView(
-                    simManager: simManager,
-                    managers: container.eventManagers,
-                    totalDice: $totalDice,
-                    selectedDice: $selectedDice,
-                    lockSelection: $lockSelection,
-                    closedSave: saveEvents
-                )
-                .listRowSeparator(.hidden)
+        List {
+            SimulatorHeaderView(
+                totalDice: $totalDice,
+                selectedDice: $selectedDice,
+                K: $K,
+                lockSelection: $lockSelection,
+                simManager: simManager,
+                editableHeader: $editableHeader
+            )
+            .listRowSeparator(.hidden)
+            EventsView(
+                simManager: simManager,
+                managers: container.eventManagers,
+                totalDice: $totalDice,
+                selectedDice: $selectedDice,
+                lockSelection: $lockSelection,
+                closedSave: saveEvents
+            )
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+        .padding(.bottom, 20)
+        .navigationTitle("Simulator")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                if #unavailable(iOS 16.0) {
+                    EditButton()
+                }
+                NavigationLink {
+                    SimulatorInfoView()
+                } label: {
+                    Image(systemName: "info.circle")
+                }
             }
-            .listStyle(.plain)
-            .padding(.bottom, 20)
-            .navigationTitle("Simulator")
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    if shownAsSheet {
-                        BackButtonView(dismiss: dismiss)
-                    }
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button {
+                    resetButton.toggle()
+                } label: {
+                    Image(systemName: "arrow.counterclockwise.circle.fill")
+                        .symbolRenderingMode(.multicolor)
                 }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    if #unavailable(iOS 16.0) {
-                        EditButton()
-                    }
-                }
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Button {
-                        resetButton.toggle()
-                    } label: {
-                        Image(systemName: "arrow.counterclockwise.circle.fill")
-                            .symbolRenderingMode(.multicolor)
-                    }
-                    .confirmationDialog("", isPresented: $resetButton) {
-                        Button("Reset \(container.eventManagers.managers.count) Events", role: .destructive) {
-                            withAnimation {
-                                for manager in container.eventManagers.managers {
-                                    for index in manager.events.indices {
-                                        if index == 0 {
-                                            manager.events[index].reset(dice: selectedDice, conjunction: .first)
-                                        } else {
-                                            manager.events[index].reset(dice: selectedDice, conjunction: nil)
-                                        }
+                .confirmationDialog("", isPresented: $resetButton) {
+                    Button("Reset \(container.eventManagers.managers.count) Events", role: .destructive) {
+                        withAnimation {
+                            for manager in container.eventManagers.managers {
+                                for index in manager.events.indices {
+                                    if index == 0 {
+                                        manager.events[index].reset(dice: selectedDice, conjunction: .first)
+                                    } else {
+                                        manager.events[index].reset(dice: selectedDice, conjunction: nil)
                                     }
                                 }
                             }
                         }
-                        Button("Cancel", role: .cancel) { }
-                    } message: {
-                        Text("Reset All Events to default? This action cannot be undone.")
                     }
-                    Button {
-                        clearButton.toggle()
-                    } label: {
-                        Image(systemName: "trash.circle.fill")
-                            .symbolRenderingMode(.multicolor)
-                    }
-                    .confirmationDialog("", isPresented: $clearButton) {
-                        Button("Delete \(container.eventManagers.managers.count) Events", role: .destructive) {
-                            withAnimation {
-                                container.eventManagers.managers.removeAll()
-                            }
+                    Button("Cancel", role: .cancel) { }
+                } message: {
+                    Text("Reset All Events to default? This action cannot be undone.")
+                }
+                Button {
+                    clearButton.toggle()
+                } label: {
+                    Image(systemName: "trash.circle.fill")
+                        .symbolRenderingMode(.multicolor)
+                }
+                .confirmationDialog("", isPresented: $clearButton) {
+                    Button("Delete \(container.eventManagers.managers.count) Events", role: .destructive) {
+                        withAnimation {
+                            container.eventManagers.managers.removeAll()
                         }
-                        Button("Cancel", role: .cancel) { }
-                    } message: {
-                        Text("Delete All Events? This action cannot be undone.")
                     }
-                    Spacer()
-                    Button {
-                        self.isSharePresented = true
-                    } label: {
-                        Image(systemName: "square.and.arrow.up")
+                    Button("Cancel", role: .cancel) { }
+                } message: {
+                    Text("Delete All Events? This action cannot be undone.")
+                }
+                Spacer()
+                Button {
+                    self.isSharePresented = true
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .padding(.trailing, 10)
+                .sheet(
+                    isPresented: $isSharePresented,
+                    content: {
+                        ActivityViewController(activityItems: fileNames)
                     }
-                    .padding(.trailing, 10)
-                    .sheet(
-                        isPresented: $isSharePresented,
-                        content: {
-                            ActivityViewController(activityItems: fileNames)
-                        }
-                    )
-                    Button {
-                        DispatchQueue.global(qos: .userInteractive).async {
-                            computeAll()
-                        }
-                    } label: {
-                        Image(systemName: "hammer.circle.fill")
-                            .foregroundColor(.accentColor)
+                )
+                Button {
+                    DispatchQueue.global(qos: .userInteractive).async {
+                        computeAll()
                     }
+                } label: {
+                    Image(systemName: "hammer.circle.fill")
+                        .foregroundColor(.accentColor)
                 }
             }
         }
@@ -338,16 +337,6 @@ struct EventsView: View {
         if managers.showManager {
             ZStack {
                 SimulatorCard(minHeight: 40)
-                NavigationLink {
-                    SimulatorPresetsView(eventManagers: managers, simManager: simManager, selectedDice: $selectedDice)
-                } label: {
-                    Text("Preset Events")
-                        .font(.headline)
-                }
-                .padding(8)
-            }
-            ZStack {
-                SimulatorCard(minHeight: 40)
                 HStack {
                     Text("Custom Event")
                         .font(.headline)
@@ -361,10 +350,21 @@ struct EventsView: View {
                             .imageScale(.large)
                     }
                 }
-                .padding(.leading, 5)
-                .padding(.trailing, 5)
+                .padding(8)
             }
+            .padding(.top, 10)
         }
+        ZStack {
+            SimulatorCard(minHeight: 40)
+            NavigationLink {
+                SimulatorPresetsView(eventManagers: managers, simManager: simManager, selectedDice: $selectedDice)
+            } label: {
+                Text("Preset Events")
+                    .font(.headline)
+            }
+            .padding(8)
+        }
+        .padding(.top, 5)
     }
     
     func reset(eventManager: EventManager) {
@@ -771,8 +771,6 @@ struct SimulatorCard: View {
             )
     }
 }
-
-
 
 struct SimulatorViewPreview: View {
     @State var totalDice = 6

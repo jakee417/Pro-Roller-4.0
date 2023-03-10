@@ -33,62 +33,45 @@ struct PresetView: View {
     @State var selectedEventManager: EventManager? = nil
     @State var addAll: Bool = false
     @State var showPresets: [EventManager] = SimulationPresets.presets[.example]!
-    @State var showRecommendations = true
     @State var eventManagersToAdd: [EventManager] = []
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             HStack {
+                Text(game.rawValue)
+                    .font(.title.bold())
+                    .foregroundColor(.primary)
+                Spacer()
                 Button {
-                    withAnimation(.spring()) {
-                        showRecommendations.toggle()
-                    }
+                    addAll.toggle()
                 } label: {
-                    Label(game.rawValue, systemImage: "chevron.right.circle.fill")
-                        .labelStyle(.iconOnly)
-                        .imageScale(.large)
-                        .rotationEffect(.degrees(showRecommendations ? 90 : 0))
-                        .scaleEffect(showRecommendations ? 1.1 : 1)
-                    Text(game.rawValue)
-                        .font(.title.bold())
-                        .foregroundColor(.primary)
+                    Text("Add All")
                 }
                 .buttonStyle(.borderless)
-                Spacer()
-                if showRecommendations {
-                    Button {
-                        addAll.toggle()
-                    } label: {
-                        Text("Add All")
-                    }
-                    .buttonStyle(.borderless)
-                    .transition(.opacity)
-                    .confirmationDialog("", isPresented: $addAll) {
-                        Button("Add \((SimulationPresets.presets[game] ?? []).count) Events") {
-                            withAnimation {
-                                for preset in SimulationPresets.presets[game] ?? [] {
-                                    preset.updateSelectedDiceType(newDiceType: selectedDice)
-                                    let presetCopy: EventManager = preset.copy() as! EventManager
-                                    eventManagersToAdd.append(presetCopy)
-                                }
+                .transition(.opacity)
+                .confirmationDialog("", isPresented: $addAll) {
+                    Button("Add \((SimulationPresets.presets[game] ?? []).count) Events") {
+                        withAnimation {
+                            for preset in SimulationPresets.presets[game] ?? [] {
+                                preset.updateSelectedDiceType(newDiceType: selectedDice)
+                                let presetCopy: EventManager = preset.copy() as! EventManager
+                                eventManagersToAdd.append(presetCopy)
                             }
-                            UINotificationFeedbackGenerator().notificationOccurred(.success)
                         }
-                        Button("Cancel", role: .cancel) { }
-                    } message: {
-                        Text("Add All Events?")
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
                     }
+                    Button("Cancel", role: .cancel) { }
+                } message: {
+                    Text("Add All Events?")
                 }
             }
-            HStack{
+            HStack {
                 Text(game.description)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 Spacer()
             }
-            if showRecommendations {
-                scrollWheel
-            }
+            scrollWheel
         }
         .onAppear {
             eventManagersToAdd = []
@@ -132,12 +115,12 @@ private extension PresetView {
                         )
                         .scaleEffect(1.1 * cos(computeAngle(geometry.frame(in: .global).minX)))
                     }
-                    .frame(width: 200, height: 80)
+                    .frame(width: 200, height: 120)
                 }
             }
-            .padding(.all, 10)
+            .padding(.horizontal, 10)
         }
-        .frame(width: UIScreen.main.bounds.width * 0.95, height: 90)
+        .frame(width: UIScreen.main.bounds.width * 0.95, height: 150)
         .onAppear {
             if let presets = SimulationPresets.presets[game] {
                 showPresets = presets
@@ -160,7 +143,7 @@ struct PresetCard: View {
     let add: (EventManager) -> Void
     
     var body: some View {
-        VStack(spacing: 8) {
+        VStack {
             HStack {
                 Button {
                     previewEventManager = preset
@@ -185,15 +168,17 @@ struct PresetCard: View {
             }
             ZStack {
                 SimulatorCard(minHeight: 40, minWidth: 200)
-                    .shadow(color: .primary, radius: 3, x: 5, y: 5)
+                    .shadow(color: .primary, radius: 3, x: 4, y: 2)
                 HStack {
                     VStack {
+                        Spacer()
                         Text("\(preset.events.count)")
                             .font(.headline.bold())
                         Text("Events")
                             .font(.subheadline)
+                        Spacer()
                     }
-                    .padding(.leading, 10)
+                    .padding(.leading, 15)
                     Spacer()
                     Button {
                         buttonClicked = true

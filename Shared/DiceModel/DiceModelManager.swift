@@ -128,7 +128,7 @@ class DiceManager: ObservableObject, Identifiable, Equatable {
     @Published var incrementAmount: DiceAmountPresets = .small
     @Published private var _color: Color = .white
     @Published public var lockSelection: [Int: Int] = [:]
-    @Published public var showSimulator: Bool = false
+    @Published public var showSimulator: Bool? = false
     @Published public var showProfile: Bool = true
     @Published public var editSelection: Set<Int> = Set<Int>()
     

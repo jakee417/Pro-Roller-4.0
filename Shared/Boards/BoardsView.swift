@@ -109,18 +109,8 @@ struct BoardsView: View {
                     if #unavailable(iOS 16.0) {
                         EditButton()
                     }
+                    
                     GameCenterButton(closedSave: saveSettings)
-                }
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    HStack(spacing: 15) {
-                        MultiplayerButton(closedSave: saveSettings)
-                        LeaveMatchButton()
-                        LastMatchButton(closedSave: saveSettings)
-                    }
-                    .imageScale(.medium)
-                    .disabled(!self.gkManager.allowMultiplayer)
-                    .buttonStyle(.borderless)
-                    .labelStyle(.iconOnly)
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
                     BoardToolbarView(
@@ -137,9 +127,6 @@ struct BoardsView: View {
         }
         .onChange(of: diceManagers.managers) { _ in
             saveSettings()
-        }
-        .fullScreenCover(isPresented: self.$gkManager.playingGame) {
-            GKTurnBasedView()
         }
         .navigationBarTitleDisplayMode(.large)
         .navigationViewStyle(.stack)
@@ -249,6 +236,59 @@ struct NewDiceBoardView: View {
     }
 }
 
+struct MultiplayerButton: View {
+    @State private var showMatchMaker: Bool = false
+    @State private var showTurnBasedMatchMaker: Bool = false
+    @State private var existingMatch: Bool = false
+    @State private var nonExistingMatch: Bool = false
+    @EnvironmentObject var gkManager: GKManager
+    
+    let closedSave: () -> Void
+    
+    var body: some View {
+        Button {
+            guard let match = self.gkManager.gkMatch else {
+                showMatchMaker = true
+                return
+            }
+            if !match.players.isEmpty {
+                existingMatch = true
+            } else {
+                showMatchMaker = true
+            }
+        } label: {
+            Image(systemName: "person.fill.badge.plus")
+                .symbolRenderingMode(.multicolor)
+        }
+        .buttonStyle(.borderless)
+        .sheet(isPresented: $showMatchMaker) {
+            GKMatchmakerView(
+                minPlayers: GKManager.minPlayers,
+                maxPlayers: GKManager.maxPlayers,
+                inviteMessage: "Let's Share Pro Roller Boards!",
+                matchmakingMode: .inviteOnly
+            ) {
+                self.showMatchMaker = false
+            } failed: { (error) in
+                self.showMatchMaker = false
+            } started: { (match) in
+                closedSave()
+            }
+            .ignoresSafeArea()
+        }
+        .confirmationDialog("", isPresented: $existingMatch) {
+            if let match = self.gkManager.gkMatch {
+                Button("Remove \(match.players.count) Existing", role: .destructive) {
+                    showMatchMaker.toggle()
+                }
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Play with Friends & Remove Existing?")
+        }
+    }
+}
+
 struct GameCenterButton: View {
     @Environment(\.openURL) var openURL
     @Environment(\.scenePhase) var scenePhase
@@ -353,75 +393,6 @@ struct GameCenterView: View {
                 GKGameCenterView()
                     .ignoresSafeArea()
             }
-        }
-    }
-}
-
-struct MultiplayerButton: View {
-    @State private var showMatchMaker: Bool = false
-    @State private var showTurnBasedMatchMaker: Bool = false
-    @State private var existingMatch: Bool = false
-    @State private var nonExistingMatch: Bool = false
-    @EnvironmentObject var gkManager: GKManager
-    
-    let closedSave: () -> Void
-    
-    var body: some View {
-        Button {
-            guard let match = self.gkManager.gkMatch else {
-                nonExistingMatch = true
-                return
-            }
-            if !match.players.isEmpty {
-                existingMatch = true
-            } else {
-                nonExistingMatch = true
-            }
-        } label: {
-            Label("Add New Friends", systemImage: "person.fill.badge.plus")
-                .symbolRenderingMode(.multicolor)
-        }
-        .sheet(isPresented: $showMatchMaker) {
-            GKMatchmakerView(
-                minPlayers: GKManager.minPlayers,
-                maxPlayers: GKManager.maxPlayers,
-                inviteMessage: "Let's Share Pro Roller Boards!",
-                matchmakingMode: .inviteOnly
-            ) {
-                self.showMatchMaker = false
-            } failed: { (error) in
-                self.showMatchMaker = false
-            } started: { (match) in
-                closedSave()
-            }
-            .ignoresSafeArea()
-        }
-        .sheet(isPresented: $showTurnBasedMatchMaker) {
-            TurnBasedInviteView(
-                showTurnBasedMatchMaker: $showTurnBasedMatchMaker,
-                closedSave: closedSave
-            )
-        }
-        .confirmationDialog("", isPresented: $nonExistingMatch) {
-            Button("Live Sharing") {
-                showMatchMaker.toggle()
-            }
-            Button("Turn Based Yahtzee") {
-                showTurnBasedMatchMaker.toggle()
-            }
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("Invite Friends?")
-        }
-        .confirmationDialog("", isPresented: $existingMatch) {
-            if let match = self.gkManager.gkMatch {
-                Button("Remove \(match.players.count) Existing", role: .destructive) {
-                    showMatchMaker.toggle()
-                }
-            }
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("Play with Friends & Remove Existing?")
         }
     }
 }
