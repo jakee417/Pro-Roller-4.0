@@ -32,7 +32,7 @@ struct SharedBoardView: View {
                             .rotationEffect(.degrees(showPlayer ? 90 : 0))
                             .scaleEffect(showPlayer ? 1.1 : 1)
                         HStack {
-                            Text("\(player.displayName)'s Boards")
+                            Text("\(player.displayName)")
                                 .font(.title3.bold())
                                 .foregroundColor(.primary)
                         }

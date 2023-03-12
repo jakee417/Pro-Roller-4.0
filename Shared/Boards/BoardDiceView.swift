@@ -82,14 +82,6 @@ struct BoardDiceView: View {
             )
             .transition(.moveAndFade)
         }
-//        .fullScreenCover(isPresented: $diceManager.showSimulator) {
-//            SimulatorView(
-//                totalDice: $diceManager.totalDice,
-//                selectedDice: $diceManager.sidesOptional,
-//                lockSelection: $diceManager.lockSelection,
-//                shownAsSheet: true
-//            )
-//        }
     }
 }
 
